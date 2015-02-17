@@ -30,12 +30,10 @@ multMatrix = [[0.5,0.75], [0.25,1]]
 npMultMatrix = np.matrix(multMatrix)
 for x in range(1, int(len(plaintextStep1) / 4 if len(plaintextStep1) % 4 == 0 else len(plaintextStep1) / 4 + 1) + 1):
     newMatrix = []
-    print(x)
-    print(len(plaintextStep1))
     if x * 4  > len(plaintextStep1):
         toPutInMatrix = []
-        while len(toPutInMatrix) < len(plaintextStep1) - (x * 4):
-            toPutInMatrix.append(plaintextStep1[x * 4 + len(toPutInMatrix) + 1])
+        while len(toPutInMatrix) < len(plaintextStep1) % 4:
+            toPutInMatrix.append(plaintextStep1[(x*4) - 4 + len(toPutInMatrix)])
         while len(toPutInMatrix) <= 4:
             toPutInMatrix.append(0)
         newMatrix = [[toPutInMatrix[0], toPutInMatrix[1]], [toPutInMatrix[2], toPutInMatrix[3]]]
